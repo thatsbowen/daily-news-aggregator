@@ -1,3 +1,14 @@
+---
+AIGC:
+    Label: "1"
+    ContentProducer: 001191440300708461136T1XGW3
+    ProduceID: f927da7644cca8378603e444f25fbc2f_eb2f5320630911f1832e5254006c9bbf
+    ReservedCode1: +YHK7V2qR2RP5sqVKAH7E1mlnAkLczgaTxyscR6782xX1ycHKZb4JUTNoyNmv9+qeI75E/O2VpozzeJA+joRf8Q6J0gNDiWq/RyE1Xuvoy0dBW6Y4w+xgRmf+fHUYxAk4ZeVgZHljIrUmMKNKt01RLRA5gOCzhobUyMVtTyB2Jd/ZPb93SOkainV/gQ=
+    ContentPropagator: 001191440300708461136T1XGW3
+    PropagateID: f927da7644cca8378603e444f25fbc2f_eb2f5320630911f1832e5254006c9bbf
+    ReservedCode2: +YHK7V2qR2RP5sqVKAH7E1mlnAkLczgaTxyscR6782xX1ycHKZb4JUTNoyNmv9+qeI75E/O2VpozzeJA+joRf8Q6J0gNDiWq/RyE1Xuvoy0dBW6Y4w+xgRmf+fHUYxAk4ZeVgZHljIrUmMKNKt01RLRA5gOCzhobUyMVtTyB2Jd/ZPb93SOkainV/gQ=
+---
+
 <p align="center">
   <img src="icons/icon512.svg" alt="Daily News Aggregator" width="128" height="128">
 </p>
@@ -294,3 +305,4 @@ This project is open-sourced under the **MIT License**. You are free to use, mod
 <p align="center">
   Made with ❤️ by <a href="https://github.com/thatsbowen">thatsbowen</a>
 </p>
+*（内容由AI生成，仅供参考）*
