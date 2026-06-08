@@ -1,131 +1,296 @@
+<p align="center">
+  <img src="icons/icon512.svg" alt="Daily News Aggregator" width="128" height="128">
+</p>
+
+<h1 align="center">每日新闻聚合 · Daily News Aggregator</h1>
+
+<p align="center">
+  <strong>一站式国内外政治 · 军事 · 财经新闻聚合 + A股实时指数仪表盘</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Manifest-V3-blue?style=flat-square&logo=googlechrome" alt="Manifest V3">
+  <img src="https://img.shields.io/badge/Browser-360%20Browser%20%7C%20Chrome%20%7C%20Edge-green?style=flat-square&logo=googlechrome" alt="Browser Support">
+  <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/Version-1.0.0-red?style=flat-square" alt="Version">
+</p>
+
 ---
-AIGC:
-    Label: "1"
-    ContentProducer: 001191440300708461136T1XGW3
-    ProduceID: f927da7644cca8378603e444f25fbc2f_9743c838630211f1800a5254002afed2
-    ReservedCode1: wWKnF3bIEHHMq5CEN526p5diOqoNwq1W40Xle8pa+UZo6nX6PXYXgytc0MH4vyG3RHxzmPAXI1+Yd9eqO3JZw1UoPhTl9ZHe4jiUc3DbZFT52QT15KUdVR9ZRWciGwcWqL4sI/DurhWRDsfW0YsFbwUqY0UH5Kikh8XR1tJ4W5Az4E96+/HoN8GpnSM=
-    ContentPropagator: 001191440300708461136T1XGW3
-    PropagateID: f927da7644cca8378603e444f25fbc2f_9743c838630211f1800a5254002afed2
-    ReservedCode2: wWKnF3bIEHHMq5CEN526p5diOqoNwq1W40Xle8pa+UZo6nX6PXYXgytc0MH4vyG3RHxzmPAXI1+Yd9eqO3JZw1UoPhTl9ZHe4jiUc3DbZFT52QT15KUdVR9ZRWciGwcWqL4sI/DurhWRDsfW0YsFbwUqY0UH5Kikh8XR1tJ4W5Az4E96+/HoN8GpnSM=
+
+## 📖 目录
+
+- [中文介绍](#-项目简介)
+- [English Introduction](#-overview)
+- [功能特性](#-功能特性)
+- [技术架构](#-技术架构)
+- [安装指南](#-安装指南)
+- [发布到 360 创作者中心](#-发布到-360-创作者中心)
+- [数据来源](#-数据来源)
+- [技术栈](#-技术栈)
+- [开源协议](#-开源协议)
+
 ---
 
-# 每日新闻聚合 Daily News Aggregator
+## 🇨🇳 项目简介
 
-面向360浏览器的新闻聚合插件，展示当日国内外政治、军事、财经去重归纳新闻及A股四大指数行情。
+**每日新闻聚合** 是一款面向 360 浏览器的轻量级扩展插件，帮你在一屏之内掌握当日最值得关注的**政治、军事、财经**要闻，同时实时查看 A 股四大指数行情。
 
-## 功能特性
+### 为什么做这个？
 
-- **A股指数**：上证指数、深证成指、创业板指、沪深300 实时行情（红涨绿跌）
-- **新闻聚合**：政治、军事、财经三板块，Tab 切换
-- **去重归纳**：基于标题相似度的智能去重，相似新闻合并展示
-- **多源覆盖**：国内（网易、凤凰） + 国际（CNN、BBC、Yahoo）
-- **暗色模式**：自动适配系统暗色/亮色主题
-- **定时刷新**：股票5分钟、新闻15分钟自动更新
+信息过载时代，打开多个网站刷新闻效率低下。我们将 5 大权威新闻源（网易、凤凰网、CNN、BBC、Yahoo News）的当日要闻汇聚一处，通过**智能去重与归纳算法**，让同一条新闻只出现一次，最多保留 30 字精炼摘要。上方的股票仪表盘让你随时瞄一眼大盘走势。
 
-## 项目结构
+### 界面一览
+
+```
+┌──────────────────────────────────────────┐
+│  上证指数       深圳成指     创业板指     沪深300  │  ← 1/4 股票区
+│  3,250.68      10,820.33   2,156.78    3,890.12 │    实时涨跌幅
+│  +0.85% ↑      -0.32% ↓    +1.20% ↑   +0.56% ↑ │
+├──────────────────────────────────────────┤
+│  [ 政治 ]  [ 军事 ]  [ 财经 ]              │  ← 3/4 新闻区
+│                                            │     Tab 切换
+│  📰 中美高层战略对话在华盛顿举行...          │
+│     双方就贸易、台海等问题深入交换意见...     │    标题 + 30字摘要
+│     [网易] [CNN]                           │     来源标签
+│                                            │
+│  📰 欧盟宣布新一轮对俄制裁措施...            │
+│     制裁涉及能源领域及多家金融机构...        │
+│     [凤凰] [BBC]                           │
+└──────────────────────────────────────────┘
+```
+
+---
+
+## 🌍 Overview
+
+**Daily News Aggregator** is a lightweight 360 Browser extension that consolidates the day's most important **politics, military/defense, and finance** news from both domestic and international sources, paired with a real-time A-share market dashboard — all in a single glance.
+
+### Why This?
+
+In today's information overload, jumping between multiple news sites is inefficient. We aggregate headlines from 5 authoritative sources (NetEase, Phoenix, CNN, BBC, Yahoo News), apply **intelligent deduplication and summarization**, ensuring you see each story only once with a concise 30-character summary. The stock ticker dashboard above keeps you updated on China's four major indices at a glance.
+
+---
+
+## ✨ 功能特性
+
+| 特性 | 描述 |
+|------|------|
+| 📊 **四大指数实时** | 上证指数、深证成指、创业板指、沪深300，含点位/涨跌幅/涨跌额 |
+| 🗂️ **三大新闻板块** | 政治、军事、财经三个 Tab 独立切换 |
+| 🌐 **5 大新闻源** | 网易、凤凰网（国内） + CNN、BBC、Yahoo（国际） |
+| 🔍 **智能去重** | 基于 2-gram Jaccard 相似度算法，同质新闻自动合并 |
+| 📝 **精炼摘要** | 每条新闻自动生成 ≤30 字中文摘要 |
+| 🏷️ **来源标注** | 彩色标签区分国内/国际来源，一目了然 |
+| ⏱️ **自动刷新** | 股票 5 分钟、新闻 15 分钟后台定时更新 |
+| 🌙 **暗色模式** | 跟随系统主题自动切换 |
+| 📦 **零依赖** | 纯原生 HTML/CSS/JS，不依赖任何第三方框架 |
+
+### Features
+
+| Feature | Description |
+|---------|-------------|
+| 📊 **4 Real-Time Indices** | Shanghai Composite, Shenzhen Component, ChiNext, CSI 300 |
+| 🗂️ **3 News Categories** | Politics, Military & Defense, Finance with tab switching |
+| 🌐 **5 News Sources** | NetEase & Phoenix (domestic) + CNN, BBC, Yahoo (global) |
+| 🔍 **Smart Dedup** | 2-gram Jaccard similarity clustering eliminates duplicate stories |
+| 📝 **Concise Summaries** | Auto-generated ≤30-character Chinese summary per article |
+| 🏷️ **Source Labels** | Color-coded tags distinguish domestic vs. international sources |
+| ⏱️ **Auto Refresh** | Stocks every 5 min, news every 15 min via background worker |
+| 🌙 **Dark Mode** | Follows system theme preference automatically |
+| 📦 **Zero Dependencies** | Pure vanilla HTML/CSS/JS, no frameworks |
+
+---
+
+## 🏗️ 技术架构
+
+```
+┌─────────────────────────────────────────┐
+│              popup.html                 │
+│  ┌───────┐  ┌───────────────────────┐  │
+│  │ Stock │  │    News Tabs          │  │
+│  │ Cards │  │ ┌─────┬─────┬─────┐  │  │
+│  │  (4)  │  │ │政治 │军事 │财经 │  │  │
+│  │       │  │ ├─────┴─────┴─────┤  │  │
+│  │       │  │ │   News List     │  │  │
+│  └───────┘  │ └─────────────────┘  │  │
+│             └───────────────────────┘  │
+├─────────────────────────────────────────┤
+│           chrome.storage.local          │
+├─────────────────────────────────────────┤
+│         background.js (SW)              │
+│  ┌──────────┐  ┌──────────────────┐    │
+│  │ stock.js │  │   fetcher.js     │    │
+│  │ 东方财富  │  │  RSS + DOMParser│    │
+│  └──────────┘  └────────┬─────────┘    │
+│                         │               │
+│                    dedup.js             │
+│                 去重 + 归纳              │
+└─────────────────────────────────────────┘
+```
+
+### Data Flow / 数据流
+
+```
+[Alarms 定时器]
+      │
+      ├── (每5分钟) ──→ stock.js ──→ 东方财富 API ──→ 四大指数数据
+      │
+      └── (每15分钟) ─→ fetcher.js
+                           │
+                           ├── 网易 RSS / HTML
+                           ├── 凤凰 RSS / HTML
+                           ├── CNN RSS
+                           ├── BBC RSS
+                           └── Yahoo RSS
+                                │
+                           dedup.js (去重 + 分类 + 摘要)
+                                │
+                     chrome.storage.local
+                                │
+                         popup.js (读取渲染)
+```
+
+---
+
+## 📥 安装指南
+
+### 方式一：开发者模式加载（推荐）
+
+1. 克隆或下载本项目到本地
+   ```bash
+   git clone https://github.com/thatsbowen/daily-news-aggregator.git
+   ```
+2. 打开 360 浏览器，地址栏输入 `chrome://extensions/`
+3. 打开右上角「**开发者模式**」开关
+4. 点击「**加载已解压的扩展程序**」
+5. 选择项目文件夹 `daily-news-aggregator`
+6. 点击浏览器工具栏的插件图标即可使用
+
+### 方式二：Chrome / Edge 安装
+
+360 浏览器基于 Chromium，与 Chrome 扩展完全兼容，上述步骤同样适用于 Chrome 和 Edge。
+
+### Installation
+
+#### Method 1: Developer Mode (Recommended)
+
+1. Clone or download this repository
+   ```bash
+   git clone https://github.com/thatsbowen/daily-news-aggregator.git
+   ```
+2. Open 360 Browser and navigate to `chrome://extensions/`
+3. Enable **Developer mode** (top right)
+4. Click **Load unpacked**
+5. Select the `daily-news-aggregator` folder
+6. Click the extension icon in the toolbar
+
+#### Method 2: Chrome / Edge
+
+360 Browser is Chromium-based and fully compatible with Chrome extensions. The steps above work identically for Chrome and Edge.
+
+---
+
+## 🚀 发布到 360 创作者中心
+
+1. 将 `daily-news-aggregator` 文件夹打包为 `.zip`
+   ```bash
+   zip -r daily-news-aggregator.zip daily-news-aggregator/
+   ```
+2. 访问 [360 创作者中心](https://ext.se.360.cn/)
+3. 注册/登录开发者账号
+4. 点击「**提交新应用**」
+5. 上传 `.zip` 包，填写：
+   - 应用名称：每日新闻聚合
+   - 应用描述：一站式国内外政治、军事、财经新闻聚合 + A股实时指数仪表盘
+   - 分类：新闻资讯
+   - 截图：上传 3-5 张插件界面截图
+6. 提交审核，通常 1-3 个工作日
+
+### Publish to 360 Creator Center
+
+1. Package the `daily-news-aggregator` folder into a `.zip`
+   ```bash
+   zip -r daily-news-aggregator.zip daily-news-aggregator/
+   ```
+2. Visit [360 Creator Center](https://ext.se.360.cn/)
+3. Register / log in as a developer
+4. Click **Submit New Extension**
+5. Upload the `.zip` and fill in the metadata
+6. Submit for review (typically 1-3 business days)
+
+---
+
+## 📡 数据来源
+
+| 类别 | 来源 | 说明 |
+|------|------|------|
+| 股票 | [东方财富](https://www.eastmoney.com/) | 公开 JSON 接口，免费使用 |
+| 国内新闻 | [网易新闻](https://news.163.com/)、[凤凰网](https://www.ifeng.com/) | RSS / HTML 解析 |
+| 国际新闻 | [CNN](https://www.cnn.com/)、[BBC](https://www.bbc.com/)、[Yahoo News](https://news.yahoo.com/) | RSS Feed 解析 |
+
+### Data Sources
+
+| Category | Source | Notes |
+|----------|--------|-------|
+| Stock | [East Money](https://www.eastmoney.com/) | Public JSON API, free to use |
+| Domestic News | [NetEase](https://news.163.com/), [Phoenix](https://www.ifeng.com/) | RSS / HTML parsing |
+| Global News | [CNN](https://www.cnn.com/), [BBC](https://www.bbc.com/), [Yahoo News](https://news.yahoo.com/) | RSS Feed parsing |
+
+---
+
+## 🛠️ 技术栈
+
+- **Manifest V3** — Chrome 扩展最新规范
+- **Service Worker** — 后台定时数据抓取
+- **chrome.storage.local** — 本地缓存
+- **chrome.alarms** — 定时调度
+- **DOMParser** — RSS/HTML 解析
+- **纯原生 JS/CSS/HTML** — 零框架依赖
+
+### Tech Stack
+
+- **Manifest V3** — Latest Chrome extension specification
+- **Service Worker** — Background scheduled data fetching
+- **chrome.storage.local** — Local caching
+- **chrome.alarms** — Periodic scheduling
+- **DOMParser** — RSS/HTML parsing
+- **Vanilla JS/CSS/HTML** — Zero framework dependencies
+
+---
+
+## 📁 项目结构 / Project Structure
 
 ```
 daily-news-aggregator/
-├── manifest.json        # 扩展配置（Manifest V3）
-├── popup.html           # 弹窗主界面
-├── popup.css            # 样式文件（含暗色模式）
-├── popup.js             # 前端交互 & 数据渲染
-├── background.js        # Service Worker 定时抓取与缓存
+├── manifest.json          # 扩展配置 / Extension config
+├── popup.html             # 弹窗界面 / Popup UI
+├── popup.css              # 样式 / Styles
+├── popup.js               # 前端逻辑 / Frontend logic
+├── background.js          # 后台 Service Worker
 ├── utils/
-│   ├── stock.js         # 股票数据获取（东方财富接口）
-│   ├── fetcher.js       # 新闻源 RSS 抓取
-│   └── dedup.js         # 标题相似度去重 + 分类
+│   ├── stock.js           # 股票数据 / Stock data
+│   ├── fetcher.js         # 新闻抓取 / News fetching
+│   └── dedup.js           # 去重算法 / Dedup algorithm
 ├── icons/
-│   ├── icon16.svg       # 16x16 图标
-│   ├── icon48.svg       # 48x48 图标
-│   └── icon128.svg      # 128x128 图标
+│   ├── icon16.svg
+│   ├── icon48.svg
+│   ├── icon128.svg
+│   └── icon512.svg        # 项目图标 / Project icon
 └── README.md
 ```
 
-## 安装方法
+---
 
-### 方式一：开发者模式加载（推荐调试）
+## 📄 开源协议
 
-1. 打开360浏览器，在地址栏输入 `chrome://extensions/` 进入扩展管理页
-2. 打开右上角「开发者模式」开关
-3. 点击「加载已解压的扩展程序」
-4. 选择本项目 `daily-news-aggregator` 文件夹
-5. 插件图标出现在浏览器工具栏，点击即可使用
+本项目基于 **MIT License** 开源，你可以自由使用、修改和分发。
 
-### 方式二：打包安装
+### License
 
-1. 在 `chrome://extensions/` 页面点击「打包扩展程序」
-2. 选择 `daily-news-aggregator` 文件夹，生成 `.crx` 文件
-3. 将 `.crx` 文件拖入浏览器窗口完成安装
+This project is open-sourced under the **MIT License**. You are free to use, modify, and distribute.
 
-## 发布到360创作者中心
+---
 
-### 准备工作
-
-1. 将项目打包为 `.zip` 压缩包（包含所有文件，不要包含外层文件夹）
-2. 准备 128×128 PNG 格式图标（可将 `icons/icon128.svg` 转换为 PNG）
-3. 准备至少 3 张插件截图（弹出窗口、各Tab页截图）
-
-### 提交步骤
-
-1. 访问 [360扩展中心](https://ext.chrome.360.cn/) 注册开发者账号
-2. 进入「创作者中心」→「提交扩展」
-3. 填写扩展信息：
-   - 名称：每日新闻聚合
-   - 描述：展示当日国内外政治、军事、财经去重归纳新闻及A股四大指数行情
-   - 分类：新闻资讯
-4. 上传 `.zip` 压缩包
-5. 上传图标和截图
-6. 提交审核，通常 1-3 个工作日出结果
-7. 审核通过后自动上架，用户可在360扩展中心搜索安装
-
-### 注意事项
-
-- 360浏览器基于 Chromium 内核，完全兼容 Chrome Manifest V3 规范
-- 确保 `manifest.json` 中的 `host_permissions` 包含所有外部 API 域名
-- 首次审核可能要求提供隐私政策说明（本插件不收集任何用户数据）
-
-## 数据来源
-
-| 数据类型 | 来源 | 接口类型 |
-|---------|------|---------|
-| 上证指数 | 东方财富 | 公开 JSON API |
-| 深证成指 | 东方财富 | 公开 JSON API |
-| 创业板指 | 东方财富 | 公开 JSON API |
-| 沪深300 | 东方财富 | 公开 JSON API |
-| 国内新闻 | 网易、凤凰 | RSS |
-| 国际新闻 | CNN、BBC、Yahoo | RSS |
-
-## 技术栈
-
-- **规范**：Chrome Extension Manifest V3
-- **语言**：纯 HTML / CSS / JavaScript（无框架依赖）
-- **数据存储**：chrome.storage.local
-- **定时任务**：chrome.alarms
-- **网络请求**：fetch API（Service Worker）
-- **去重算法**：基于 2-gram Jaccard 相似度聚类
-
-## 开源协议
-
-MIT License
-
-Copyright (c) 2025
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-*（内容由AI生成，仅供参考）*
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/thatsbowen">thatsbowen</a>
+</p>

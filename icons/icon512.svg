@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="accent1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e94560"/>
+      <stop offset="100%" style="stop-color:#ff6b6b"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f3460"/>
+      <stop offset="100%" style="stop-color:#1a508b"/>
+    </linearGradient>
+    <linearGradient id="greenAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894"/>
+      <stop offset="100%" style="stop-color:#55efc4"/>
+    </linearGradient>
+    <linearGradient id="blueAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0984e3"/>
+      <stop offset="100%" style="stop-color:#74b9ff"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background rounded rect -->
+  <rect x="16" y="16" width="480" height="480" rx="96" ry="96" fill="url(#bg)"/>
+
+  <!-- Globe base -->
+  <circle cx="256" cy="240" r="140" fill="none" stroke="url(#accent2)" stroke-width="3" opacity="0.5"/>
+  <circle cx="256" cy="240" r="120" fill="none" stroke="url(#accent2)" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Globe meridians -->
+  <ellipse cx="256" cy="240" rx="60" ry="140" fill="none" stroke="url(#accent2)" stroke-width="1.5" opacity="0.35"/>
+  <ellipse cx="256" cy="240" rx="120" ry="40" fill="none" stroke="url(#accent2)" stroke-width="1.5" opacity="0.35"/>
+  <line x1="136" y1="240" x2="376" y2="240" stroke="url(#accent2)" stroke-width="1.5" opacity="0.35"/>
+
+  <!-- Globe continents simplified -->
+  <path d="M200 165 Q220 155 240 165 Q255 175 250 195 Q245 210 230 215 Q215 220 200 215 Q185 210 190 190 Z" fill="url(#accent1)" opacity="0.85" filter="url(#glow)"/>
+  <path d="M280 170 Q300 160 320 165 Q335 175 330 195 Q325 210 310 215 Q295 220 280 210 Q270 200 275 185 Z" fill="url(#accent1)" opacity="0.6"/>
+  <path d="M230 260 Q250 250 270 255 Q285 265 280 280 Q270 290 250 288 Q235 285 230 275 Z" fill="url(#greenAccent)" opacity="0.7"/>
+
+  <!-- News lines (top) -->
+  <g opacity="0.7">
+    <rect x="80" y="82" width="90" height="5" rx="2.5" fill="url(#accent1)"/>
+    <rect x="80" y="94" width="130" height="5" rx="2.5" fill="url(#blueAccent)"/>
+    <rect x="80" y="106" width="70" height="5" rx="2.5" fill="#636e72"/>
+  </g>
+
+  <!-- News lines (right) -->
+  <g opacity="0.6">
+    <rect x="350" y="180" width="85" height="4" rx="2" fill="url(#accent1)"/>
+    <rect x="350" y="190" width="110" height="4" rx="2" fill="#636e72"/>
+  </g>
+
+  <!-- Stock chart bars (bottom-left area) -->
+  <g filter="url(#glow)">
+    <rect x="105" y="370" width="14" height="45" rx="3" fill="url(#accent1)" opacity="0.8"/>
+    <rect x="125" y="355" width="14" height="60" rx="3" fill="url(#accent1)" opacity="0.7"/>
+    <rect x="145" y="378" width="14" height="37" rx="3" fill="url(#greenAccent)" opacity="0.8"/>
+    <rect x="165" y="365" width="14" height="50" rx="3" fill="url(#greenAccent)" opacity="0.7"/>
+    <rect x="185" y="342" width="14" height="73" rx="3" fill="url(#accent1)" opacity="0.9"/>
+    <rect x="205" y="358" width="14" height="57" rx="3" fill="url(#accent1)" opacity="0.8"/>
+  </g>
+
+  <!-- Stock trend line -->
+  <polyline points="105,400 125,385 145,395 165,380 185,365 205,375" fill="none" stroke="url(#blueAccent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" filter="url(#glow)"/>
+
+  <!-- Up arrow -->
+  <path d="M260 340 L275 320 L290 340" fill="none" stroke="url(#accent1)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <line x1="275" y1="320" x2="275" y2="380" stroke="url(#accent1)" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Source dots -->
+  <circle cx="130" cy="440" r="6" fill="#e94560" opacity="0.8"/>
+  <circle cx="155" cy="440" r="6" fill="#0984e3" opacity="0.8"/>
+  <circle cx="180" cy="440" r="6" fill="#00b894" opacity="0.8"/>
+  <circle cx="205" cy="440" r="6" fill="#fdcb6e" opacity="0.8"/>
+  <circle cx="230" cy="440" r="6" fill="#6c5ce7" opacity="0.8"/>
+</svg>
