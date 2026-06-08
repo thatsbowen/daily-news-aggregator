@@ -190,36 +190,6 @@ In today's information overload, jumping between multiple news sites is ineffici
 
 ---
 
-## 🚀 发布到 360 创作者中心
-
-1. 将 `daily-news-aggregator` 文件夹打包为 `.zip`
-   ```bash
-   zip -r daily-news-aggregator.zip daily-news-aggregator/
-   ```
-2. 访问 [360 创作者中心](https://ext.se.360.cn/)
-3. 注册/登录开发者账号
-4. 点击「**提交新应用**」
-5. 上传 `.zip` 包，填写：
-   - 应用名称：每日新闻聚合
-   - 应用描述：一站式国内外政治、军事、财经新闻聚合 + A股实时指数仪表盘
-   - 分类：新闻资讯
-   - 截图：上传 3-5 张插件界面截图
-6. 提交审核，通常 1-3 个工作日
-
-### Publish to 360 Creator Center
-
-1. Package the `daily-news-aggregator` folder into a `.zip`
-   ```bash
-   zip -r daily-news-aggregator.zip daily-news-aggregator/
-   ```
-2. Visit [360 Creator Center](https://ext.se.360.cn/)
-3. Register / log in as a developer
-4. Click **Submit New Extension**
-5. Upload the `.zip` and fill in the metadata
-6. Submit for review (typically 1-3 business days)
-
----
-
 ## 📡 数据来源
 
 | 类别 | 来源 | 说明 |
