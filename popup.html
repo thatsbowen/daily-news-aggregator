@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日新闻聚合</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- 股票指数区域 -->
+  <div id="stock-section">
+    <div class="stock-header">
+      <h2>A股指数</h2>
+      <span id="stock-update-time" class="update-time"></span>
+    </div>
+    <div id="stock-cards" class="stock-cards">
+      <div class="stock-card loading" data-index="sh">
+        <div class="stock-name">上证指数</div>
+        <div class="stock-price">--</div>
+        <div class="stock-change">加载中...</div>
+      </div>
+      <div class="stock-card loading" data-index="sz">
+        <div class="stock-name">深证成指</div>
+        <div class="stock-price">--</div>
+        <div class="stock-change">加载中...</div>
+      </div>
+      <div class="stock-card loading" data-index="cy">
+        <div class="stock-name">创业板指</div>
+        <div class="stock-price">--</div>
+        <div class="stock-change">加载中...</div>
+      </div>
+      <div class="stock-card loading" data-index="hs">
+        <div class="stock-name">沪深300</div>
+        <div class="stock-price">--</div>
+        <div class="stock-change">加载中...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 新闻区域 -->
+  <div id="news-section">
+    <div class="news-header">
+      <h2>今日要闻</h2>
+      <span id="news-update-time" class="update-time"></span>
+    </div>
+    <div class="news-tabs">
+      <button class="tab-btn active" data-tab="politics">政治</button>
+      <button class="tab-btn" data-tab="military">军事</button>
+      <button class="tab-btn" data-tab="finance">财经</button>
+    </div>
+    <div id="news-content" class="news-content">
+      <!-- 政治新闻 -->
+      <div class="tab-panel active" id="panel-politics">
+        <div class="news-loading">正在加载政治新闻...</div>
+      </div>
+      <!-- 军事新闻 -->
+      <div class="tab-panel" id="panel-military">
+        <div class="news-loading">正在加载军事新闻...</div>
+      </div>
+      <!-- 财经新闻 -->
+      <div class="tab-panel" id="panel-finance">
+        <div class="news-loading">正在加载财经新闻...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部状态栏 -->
+  <div id="footer-bar">
+    <span id="cache-status">数据来源：实时抓取</span>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

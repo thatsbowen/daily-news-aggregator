@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "每日新闻聚合 Daily News Aggregator",
+  "version": "1.0.0",
+  "description": "展示当日国内外政治、军事、财经去重归纳新闻及A股四大指数行情",
+  "author": "open-source",
+  "icons": {
+    "16": "icons/icon16.svg",
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "每日新闻聚合"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "https://push2.eastmoney.com/*",
+    "https://hq.sinajs.cn/*",
+    "https://rss.cnn.com/*",
+    "https://feeds.bbci.co.uk/*",
+    "https://news.yahoo.com/*",
+    "https://*.163.com/*",
+    "https://*.ifeng.com/*"
+  ],
+  "permissions": [
+    "storage",
+    "alarms"
+  ]
+}
