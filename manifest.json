@@ -24,7 +24,9 @@
     "https://feeds.bbci.co.uk/*",
     "https://news.yahoo.com/*",
     "https://*.163.com/*",
-    "https://*.ifeng.com/*"
+    "https://*.ifeng.com/*",
+    "https://rsshub.app/*",
+    "https://api.allorigins.win/*"
   ],
   "permissions": [
     "storage",
